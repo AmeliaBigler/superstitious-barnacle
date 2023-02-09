@@ -1,0 +1,23 @@
+{
+  "name": "superstitious-barnacle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AmeliaBigler/superstitious-barnacle.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AmeliaBigler/superstitious-barnacle/issues"
+  },
+  "homepage": "https://github.com/AmeliaBigler/superstitious-barnacle#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
+}
