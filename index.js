@@ -1,7 +1,9 @@
 // Packages needed for this application
 
-const { fstat } = require("fs");
+const fs = require("fs");
 const inquirer = require("inquirer");
+
+const generateMarkdown = require("./utils/generateMarkdown.js")
 
 // Define an array of questions for user input
 const questions = [
@@ -24,21 +26,6 @@ const questions = [
         type: 'input',
         message: 'Provide instructions and examples for use:',
         name: 'usage'
-    },
-    {
-        type: 'input',
-        message: 'List your collaborators with links to their github profiles:',
-        name: 'collabs',
-    },
-    {
-        type: 'input',
-        message: 'List any third-party assets that require attribution. List the creators with links to their primary web presence.',
-        name: 'assets',
-    },
-    {
-        type: 'input',
-        message: 'Include links to tutorials.',
-        name: 'tutorials',
     },
     {
         type: 'list',
@@ -74,11 +61,39 @@ const questions = [
         'The Unlicense',
         'zLib License']
     },
+    {
+        type: 'input',
+        message: 'Include guidelines for others to contribute to your project:',
+        name: 'contribute',
+    },
+    {
+        type: 'input',
+        message: 'Include test instructions:',
+        name: 'tests',
+    },
+    {
+        type: 'input',
+        message: 'Your github username:',
+        name: 'username',
+    },
+    {
+        type: 'input',
+        message: 'Your github profile link:',
+        name: 'profile',
+    },
+    {
+        type: 'input',
+        message: 'Your email:',
+        name: 'email',
+    },
 ];
 
 // TODO: Define function to write README file
-function writeFile(fileName, data) {
-    console.log('call write to file');
+function writeToFile(data) {
+    const markdown = generateMarkdown(data);
+    fs.writeFile("README.md", markdown, (err) =>
+            err ? console.log(err) : 
+            console.log('Success!'))
 
 }
 
@@ -87,11 +102,8 @@ function init() {
     inquirer
         .prompt(questions)
         .then((data) => {
-            const fileName = `${data.title.toLowerCase().split(' ').join('')}.md`;
-            writeFile(fileName, data, (err) =>
-            err ? console.log(err) : 
-            console.log('Success!'))
-        })
+            writeToFile(data);
+        });
 }
 
 // Function call to initialize app
