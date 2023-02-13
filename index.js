@@ -1,4 +1,4 @@
-// Packages needed for this application
+// Packages/modules needed for this application
 
 const fs = require("fs");
 const inquirer = require("inquirer");
@@ -59,7 +59,8 @@ const questions = [
         'SIL Open Font License 1.1',
         'University of Illinois/NCSA Open Source',
         'The Unlicense',
-        'zLib License']
+        'zLib License',
+        'N/A']
     },
     {
         type: 'input',
@@ -88,7 +89,7 @@ const questions = [
     },
 ];
 
-// TODO: Define function to write README file
+// Define function to write README file
 function writeToFile(data) {
     const markdown = generateMarkdown(data);
     fs.writeFile("README.md", markdown, (err) =>
