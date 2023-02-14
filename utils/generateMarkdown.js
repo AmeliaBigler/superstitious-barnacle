@@ -1,37 +1,35 @@
-const licenseArray = ['Academic Free License v3.0', 
-'Apache license', 
-'Artistic license 2.0', 
-'Boost Software License 1.0', 
-'BSD 2-clause "Simplified"', 
-'BSD 3-clause "New"', 
-'BSD 3-clause Clear', 
-'Creative Commons', 
-'Creative Commons Zero v1.0 Universal',
-'Creative Commons Attribution 4.0',
-'Creative Commons Attribution Share Alike 4.0',
-'Do What The F*ck You Want To Public License',
-'Educational Community License v2.0',
-'Eclipse Public 1.0',
-'Eclipse Public 2.0',
-'European Union Public License 1.1',
-'GNU Affero General Public License v3.0',
-'GNU GPL',
-'ISC',
-'LaTeX Project Public License v1.3c',
-'Microsoft Public License', 
-'MIT', 
-'Mozilla Public License 2.0',
-'Open Software License 3.0',
-'PostgreSQL License 1.1',
-'SIL Open Font License 1.1',
-'University of Illinois/NCSA Open Source',
-'The Unlicense',
-'zLib License',
-'N/A'];
+// const licenseArray = ['Academic Free License v3.0', 
+// 'Apache license', 
+// 'Artistic license 2.0', 
+// 'Boost Software License 1.0', 
+// 'BSD 2-clause "Simplified"', 
+// 'BSD 3-clause "New"', 
+// 'BSD 3-clause Clear', 
+// 'Creative Commons', 
+// 'Creative Commons Zero v1.0 Universal',
+// 'Creative Commons Attribution 4.0',
+// 'Creative Commons Attribution Share Alike 4.0',
+// 'Do What The F*ck You Want To Public License',
+// 'Educational Community License v2.0',
+// 'Eclipse Public 1.0',
+// 'Eclipse Public 2.0',
+// 'European Union Public License 1.1',
+// 'GNU Affero General Public License v3.0',
+// 'GNU GPL',
+// 'ISC',
+// 'LaTeX Project Public License v1.3c',
+// 'Microsoft Public License', 
+// 'MIT', 
+// 'Mozilla Public License 2.0',
+// 'Open Software License 3.0',
+// 'PostgreSQL License 1.1',
+// 'SIL Open Font License 1.1',
+// 'University of Illinois/NCSA Open Source',
+// 'The Unlicense',
+// 'zLib License',
+// 'N/A'];
 
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-let licenseBadge;
+// Define a function that returns a license badge based on which license is passed in. If there is no license, return an empty string.
 function renderLicenseBadge(license) {
   switch (license) {
     case 'Academic Free License v3.0':
@@ -124,12 +122,10 @@ function renderLicenseBadge(license) {
     case 'N/A':
       licenseBadge = '';
   }
-  console.log(licenseBadge);
+  return licenseBadge;
 }
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-let licenseLink;
+// Define a function that returns the license link. If there is no license, return an empty string.
 function renderLicenseLink(license) {
   switch (license) {
     case 'Academic Free License v3.0':
@@ -222,48 +218,61 @@ function renderLicenseLink(license) {
     case 'N/A':
       licenseLink = '';
   }
-  console.log(licenseLink);
+  return licenseLink;
 }
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
+// Define a function that returns the license section of README. If there is no license, return an empty string
 function renderLicenseSection(license) {
-  renderLicenseBadge(license);
-  renderLicenseLink(license);
+  if (license === 'N/A') {
+    return '';
+  } else {
+    const licenseLink = renderLicenseLink(license);
+
+    return '\n## License \nThis app is covered under the following license: ' + licenseLink + '.\n';
+  }
 }
 
-// Define function to generate markdown for README
+function renderLicenseTable(license) {
+  if (license === 'N/A') {
+    return '\n3. [Contributing](#contributing)\n4. [Tests](#tests)\n5. [Questions](#questions)';
+  } else {
+    return '\n3. [License](#license)\n4. [Contributing](#contributing)\n5. [Tests](#tests)\n6. [Questions](#questions)';
+  }
+}
+
+// Define function to generate markdown for README.
 const generateMarkdown = ({title, descr, install, usage, license, contribute, tests, username, profile, email}) =>{
 
-  renderLicenseSection(license);
+  const licenseBadge = renderLicenseBadge(license);
+  const licenseTable = renderLicenseTable(license);
+  const licenseSection = renderLicenseSection(license);
 
-  return `${licenseBadge} # ${title} 
+  return `${licenseBadge} 
+# ${title} 
 
-  ## Description 
-  ${descr}
+## Description 
+${descr}
 
-  ## Table of Contents
+## Table of Contents
+1. [Installation](#installation)
+2. [Usage](#usage)${licenseTable}
 
-  ## Installation 
-  ${install}
+## Installation 
+${install}
 
-  ## Usage
-  ${usage}
+## Usage
+${usage}
+${licenseSection}
+## Contributing
+${contribute}
 
-  ## License
-  ${licenseLink}
+## Tests
+${tests}
 
-  ## Contributing
-  ${contribute}
-
-  ## Tests
-  ${tests}
-
-  ## Questions
-  ${username}
-  ${profile}
-  Email me with any further questions:
-  ${email}
+## Questions
+My GitHub Profile: [${username}](${profile})
+\nEmail me with any further questions:
+${email}
 
 `;
 }
