@@ -17,7 +17,7 @@ In order to install inquirer, please use `npm i inquirer@8.2.4` in the app direc
 The application is invoked by using the following command from the command line in the app directory: 
     `node index.js`
 
-[Video Demo]()
+[Video Demo](https://drive.google.com/file/d/14tWXgDv8z7I2VMiVJJf3rxofATuIhCoP/view)
 
 ## Credits
 
