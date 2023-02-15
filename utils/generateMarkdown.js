@@ -1,34 +1,3 @@
-// const licenseArray = ['Academic Free License v3.0', 
-// 'Apache license', 
-// 'Artistic license 2.0', 
-// 'Boost Software License 1.0', 
-// 'BSD 2-clause "Simplified"', 
-// 'BSD 3-clause "New"', 
-// 'BSD 3-clause Clear', 
-// 'Creative Commons', 
-// 'Creative Commons Zero v1.0 Universal',
-// 'Creative Commons Attribution 4.0',
-// 'Creative Commons Attribution Share Alike 4.0',
-// 'Do What The F*ck You Want To Public License',
-// 'Educational Community License v2.0',
-// 'Eclipse Public 1.0',
-// 'Eclipse Public 2.0',
-// 'European Union Public License 1.1',
-// 'GNU Affero General Public License v3.0',
-// 'GNU GPL',
-// 'ISC',
-// 'LaTeX Project Public License v1.3c',
-// 'Microsoft Public License', 
-// 'MIT', 
-// 'Mozilla Public License 2.0',
-// 'Open Software License 3.0',
-// 'PostgreSQL License 1.1',
-// 'SIL Open Font License 1.1',
-// 'University of Illinois/NCSA Open Source',
-// 'The Unlicense',
-// 'zLib License',
-// 'N/A'];
-
 // Define a function that returns a license badge based on which license is passed in. If there is no license, return an empty string.
 function renderLicenseBadge(license) {
   switch (license) {
@@ -49,12 +18,6 @@ function renderLicenseBadge(license) {
       break;
     case 'BSD 3-clause "New"':
       licenseBadge = '[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)';
-      break;
-    case 'BSD 3-clause Clear':
-      licenseBadge = '[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)';
-      break;
-    case 'Creative Commons':
-      licenseBadge = '';
       break;
     case 'Creative Commons Zero v1.0 Universal':
       licenseBadge = '[![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](http://creativecommons.org/publicdomain/zero/1.0/)';
@@ -82,9 +45,6 @@ function renderLicenseBadge(license) {
       break;
     case 'GNU Affero General Public License v3.0':
       licenseBadge = '[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)';
-      break;
-    case 'GNU GPL':
-      licenseBadge = '';
       break;
     case 'ISC':
       licenseBadge = '[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)';
@@ -146,12 +106,6 @@ function renderLicenseLink(license) {
     case 'BSD 3-clause "New"':
       licenseLink = '[BSD 3-clause "New"](https://opensource.org/licenses/BSD-3-Clause)';
       break;
-    case 'BSD 3-clause Clear':
-      licenseLink = '[BSD 3-clause Clear](https://opensource.org/licenses/BSD-3-Clause)';
-      break;
-    case 'Creative Commons':
-      licenseLink = '';
-      break;
     case 'Creative Commons Zero v1.0 Universal':
       licenseLink = '[CC0-1.0](http://creativecommons.org/publicdomain/zero/1.0/)';
       break;
@@ -165,31 +119,28 @@ function renderLicenseLink(license) {
       licenseLink = '[WTFPL](http://www.wtfpl.net/about/)';
       break;
     case 'Educational Community License v2.0':
-      licenseLink = '';
+      licenseLink = '[Educational Community License v2.0](https://opensource.org/license/ecl2-php/)';
       break;
     case 'Eclipse Public 1.0':
       licenseLink = '[Eclipse Public License 1.0](https://opensource.org/licenses/EPL-1.0)';
       break;
     case 'Eclipse Public 2.0':
-      licenseLink = '';
+      licenseLink = '[Eclipse Public License 2.0](https://opensource.org/license/epl-2-0/)';
       break;
     case 'European Union Public License 1.1':
-      licenseLink = '';
+      licenseLink = '[European Union Public License 1.1](https://opensource.org/license/eupl-1-1/)';
       break;
     case 'GNU Affero General Public License v3.0':
       licenseLink = '[GPL v3](https://www.gnu.org/licenses/gpl-3.0)';
-      break;
-    case 'GNU GPL':
-      licenseLink = '';
       break;
     case 'ISC':
       licenseLink = '[ISC](https://opensource.org/licenses/ISC)';
       break;
     case 'LaTeX Project Public License v1.3c':
-      licenseLink = '';
+      licenseLink = '[LaTeX Project Public License v1.3c](https://opensource.org/license/lppl/)';
       break;
     case 'Microsoft Public License':
-      licenseLink = '';
+      licenseLink = '[MS-PL](https://opensource.org/license/ms-pl-html/)';
       break;
     case 'MIT':
       licenseLink = '[MIT](https://opensource.org/licenses/MIT)';
@@ -198,16 +149,16 @@ function renderLicenseLink(license) {
       licenseLink = '[MPL 2.0](https://opensource.org/licenses/MPL-2.0)';
       break;
     case 'Open Software License 3.0':
-      licenseLink = '';
+      licenseLink = '[Open Software License 3.0](https://opensource.org/license/osl-3-0-php/)';
       break;
     case 'PostgreSQL License 1.1':
-      licenseLink = '';
+      licenseLink = '[PostgreSQL](https://opensource.org/license/postgresql/)';
       break;
     case 'SIL Open Font License 1.1':
       licenseLink = '[Open Font-1.1](https://opensource.org/licenses/OFL-1.1)';
       break;
     case 'University of Illinois/NCSA Open Source':
-      licenseLink = '';
+      licenseLink = '[University of Illinois/NCSA Open Source](https://opensource.org/license/uoi-ncsa-php/)';
       break;
     case 'The Unlicense':
       licenseLink = '[Unlicense](http://unlicense.org/)';
